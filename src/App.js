@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import List from './components/List';
 
 const users = [
   { id: 'a', name: 'Robin' },
@@ -32,20 +33,6 @@ const App = () => {
       <List list={filteredUsers} />
     </div>
   );
-};
-
-const List = ({ list }) => {
-  return (
-    <ul>
-      {list.map((item) => (
-        <ListItem key={item.id} item={item} />
-      ))}
-    </ul>
-  );
-};
-
-const ListItem = ({ item }) => {
-  return <li>{item.name}</li>;
 };
 
 export default App;
