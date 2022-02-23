@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useMemo } from 'react';
 import List from './components/List';
 
 const users = [
@@ -19,9 +19,14 @@ const App = () => {
     setSearch(text);
   };
 
-  const filteredUsers = users.filter((user) => {
-    return user.name.toLowerCase().includes(search.toLowerCase());
-  });
+  const filteredUsers = useMemo(
+    () =>
+      users.filter((user) => {
+        console.log('Filter function is running ...');
+        return user.name.toLowerCase().includes(search.toLowerCase());
+      }),
+    [search]
+  );
 
   return (
     <div>
